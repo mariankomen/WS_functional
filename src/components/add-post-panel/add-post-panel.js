@@ -7,16 +7,22 @@ import PostItem from "../post-item/post-item";
 export default class AddPostPanel extends Component {
 
     render() {
-        const {postItems} = this.props;
-
-        const PostCreator = postItems.map((e)=> <PostItem nameUser={e.nameUser}
-                                                          content={e.content}
-                                                          date={e.date}/>)
-
+        const {postItems, deletePost} = this.props;
+        const PostCre = postItems.map((items) => {
+            const {id, ...itemObj} = items;
+            return(
+                <li key={id} className='post_item_li'>
+                    <PostItem {...itemObj}
+                              deletePost={() => deletePost(id)}
+                    />
+                </li>
+            )
+        })
         return (
             <div className="add-post-panel">
-                <AddPostRender AddPost={this.props.AddPost}/>
-                {PostCreator}
+                <AddPostRender AddPost={this.props.AddPost}
+                />
+                {PostCre}
             </div>
         );
     }

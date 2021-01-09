@@ -4,7 +4,7 @@ import AddPostPanel from "../add-post-panel/add-post-panel";
 
 
 export default class App extends Component {
-
+    newID = 100;
     state = {
         postItems: [
             this.ItemCreator('Ivan','Prodam garaj'),
@@ -15,7 +15,8 @@ export default class App extends Component {
         return {
             nameUser: nameUser,
             content: content,
-            date: '21-09-2000'
+            date: '21-09-2000',
+            id: this.newID++
         }
     }
     AddPost = (nameUser,content) => {
@@ -27,6 +28,19 @@ export default class App extends Component {
             }
         })
     }
+    deletePost = (id) => {
+        this.setState(({postItems}) => {
+            const idx = postItems.findIndex((el) => el.id === id);
+            const newArr = [
+                ...postItems.slice(0, idx),
+                ...postItems.slice(idx + 1)
+            ]
+            return {
+                postItems: newArr
+            };
+        });
+    };
+
 
     render() {
 
@@ -35,7 +49,7 @@ export default class App extends Component {
                 <Header/>
                 <AddPostPanel postItems={this.state.postItems}
                               AddPost={this.AddPost}
-
+                              deletePost={this.deletePost}
                 />
             </div>
         );

@@ -18,9 +18,6 @@ export default class AddPostRender extends Component {
         });
         console.log("Name: ", e.target.value)
     }
-    addMiniPost = () => {
-        console.log(`name of user:${this.state.nameUser}, written content: ${this.state.content}`)
-    }
     onSubmit = (e) => {
         e.preventDefault();
         this.props.AddPost(this.state.nameUser, this.state.content)

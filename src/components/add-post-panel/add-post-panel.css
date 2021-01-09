@@ -2,3 +2,6 @@
     width: 1000px;
     margin: 0 auto;
 }
+.post_item_li {
+    list-style: none;
+}

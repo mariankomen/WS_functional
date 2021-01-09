@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-
 import './post-item.css';
 
 export default class PostItem extends Component {
     render() {
-        const {nameUser, content, date} = this.props;
+        const {nameUser, content, date, deletePost} = this.props;
         return (
             <div className='post-item'>
 
@@ -21,7 +20,7 @@ export default class PostItem extends Component {
                     {content}
                  </textarea>
                 <button type="button" className="btn btn-secondary">Редагувати</button>
-                <button type="button" className="btn btn-danger">Видалити</button>
+                <button type="button" className="btn btn-danger" onClick={deletePost}>Видалити</button>
 
             </div>
         );
