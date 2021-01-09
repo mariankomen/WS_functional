@@ -7,7 +7,7 @@ export default class App extends Component {
     newID = 100;
     state = {
         postItems: [
-            this.ItemCreator('Ivan','Prodam garaj'),
+            this.ItemCreator('Ivan',' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa debitis dolorum eos exercitationem inventore neque nihil nobis porro quas. Aliquam amet deserunt distinctio eum modi quaerat quisquam reprehenderit tenetur.'),
             this.ItemCreator('Stepan','Hello, prodam 3 litry samogonki'),
         ]
     }
@@ -19,6 +19,7 @@ export default class App extends Component {
             id: this.newID++
         }
     }
+
     AddPost = (nameUser,content) => {
         const NewPost = this.ItemCreator(nameUser,content);
         this.setState(({postItems})=>{
@@ -40,16 +41,32 @@ export default class App extends Component {
             };
         });
     };
+//slozhno
+
+    editPost = (id) => {
+        this.setState(({postItems}) => {
+            const idx = postItems.findIndex((el) => el.id === id);
+            console.log(`Index is: ${idx}`);
+            console.log(postItems[idx]);
+            return{
+                postItems
+            }
+        })
+    }
+
+
 
 
     render() {
 
         return (
             <div>
+
                 <Header/>
                 <AddPostPanel postItems={this.state.postItems}
                               AddPost={this.AddPost}
                               deletePost={this.deletePost}
+                              editPost={this.editPost}
                 />
             </div>
         );
