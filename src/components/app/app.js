@@ -7,20 +7,36 @@ export default class App extends Component {
 
     state = {
         postItems: [
-            {nameUser: 'Ivan', content: 'hello its post', date: '21-09-2000'},
-            {nameUser: 'Ivan', content: 'hello its post', date: '21-09-2000'},
-            {nameUser: 'Ivan', content: 'hello its post', date: '21-09-2000'},
+            this.ItemCreator('Ivan','Prodam garaj'),
+            this.ItemCreator('Stepan','Hello, prodam 3 litry samogonki'),
         ]
+    }
+    ItemCreator(nameUser,content){
+        return {
+            nameUser: nameUser,
+            content: content,
+            date: '21-09-2000'
+        }
+    }
+    AddPost = (nameUser,content) => {
+        const NewPost = this.ItemCreator(nameUser,content);
+        this.setState(({postItems})=>{
+            const NewAddedArray = [...postItems, NewPost]
+            return {
+                postItems: NewAddedArray
+            }
+        })
     }
 
     render() {
 
-
         return (
             <div>
                 <Header/>
-                <AddPostPanel postItems={this.state.postItems}/>
+                <AddPostPanel postItems={this.state.postItems}
+                              AddPost={this.AddPost}
 
+                />
             </div>
         );
     }

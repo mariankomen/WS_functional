@@ -17,7 +17,7 @@ export default class PostItem extends Component {
                     </div>
                 </div>
 
-                <textarea className="form-control" aria-label="With textarea">
+                <textarea className="form-control " aria-label="With textarea">
                     {content}
                  </textarea>
                 <button type="button" className="btn btn-secondary">Редагувати</button>
