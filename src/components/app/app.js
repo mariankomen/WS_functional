@@ -3,13 +3,23 @@ import Header from "../header/header";
 import AddPostPanel from "../add-post-panel/add-post-panel";
 
 
-export default class App extends Component{
+export default class App extends Component {
+
+    state = {
+        postItems: [
+            {nameUser: 'Ivan', content: 'hello its post', date: '21-09-2000'},
+            {nameUser: 'Ivan', content: 'hello its post', date: '21-09-2000'},
+            {nameUser: 'Ivan', content: 'hello its post', date: '21-09-2000'},
+        ]
+    }
+
     render() {
 
-        return(
+
+        return (
             <div>
                 <Header/>
-                <AddPostPanel/>
+                <AddPostPanel postItems={this.state.postItems}/>
 
             </div>
         );
