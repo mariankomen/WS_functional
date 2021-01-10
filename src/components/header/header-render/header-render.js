@@ -39,7 +39,6 @@ export default class HeaderRender extends Component{
                                    placeholder="Enter post name: "
                                    aria-label="Search"
                                    onChange={this.OnSearchChange}
-
                             />
                             <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                         </form>
@@ -49,5 +48,4 @@ export default class HeaderRender extends Component{
             </div>
         );
     }
-
 }

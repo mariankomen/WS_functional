@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Header from "../header/header";
 import AddPostPanel from "../add-post-panel/add-post-panel";
 
+import './app.css'
 
 export default class App extends Component {
     newID = 100;
@@ -32,6 +33,7 @@ export default class App extends Component {
             }
         })
     }
+
     deletePost = (id) => {
         this.setState(({postItems}) => {
             const idx = postItems.findIndex((el) => el.id === id);
@@ -45,7 +47,6 @@ export default class App extends Component {
             };
         });
     };
-//slozhno
 
     editPost = (id,content) => {
         this.setState(({postItems}) => {
@@ -82,11 +83,9 @@ export default class App extends Component {
         const VisibleItems = this.search(postItems, term);
         return (
             <div>
-
                 <Header OnSearchChange={this.OnSearchChange}/>
                 <AddPostPanel
                               postItems={VisibleItems}
-                              // postItems={this.state.postItems}
                               AddPost={this.AddPost}
                               deletePost={this.deletePost}
                               editPost={this.editPost}

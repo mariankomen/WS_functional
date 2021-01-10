@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PostItem from "../post-item";
-// import './post-item.css';
 
 export default class PostItemEdit extends Component {
     state = {
@@ -25,7 +24,6 @@ export default class PostItemEdit extends Component {
         console.log(this.state)
     }
 
-
     render() {
         const {nameUser, content, date, editPost} = this.props;
         const {edit_status} = this.state;
@@ -49,8 +47,6 @@ export default class PostItemEdit extends Component {
                     {content}
                  </textarea>
                 <button type="button" className="btn btn-secondary" onClick={this.onEditPost}>Submit</button>
-
-
             </div>
         );
     }

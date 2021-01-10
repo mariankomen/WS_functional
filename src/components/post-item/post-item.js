@@ -3,14 +3,17 @@ import './post-item.css';
 import PostItemEdit from "./post-item-edit/post-item-edit";
 
 export default class PostItem extends Component {
+
     state = {
         edit_status: true
     }
+
     editStateStatus = () => {
         this.setState({
             edit_status: false
         })
     }
+
     render() {
         const {id, nameUser, content, date, deletePost, editPost} = this.props;
         const {edit_status} = this.state;
@@ -20,7 +23,6 @@ export default class PostItem extends Component {
         }
 
         return (
-
             <div className='post-item'>
                 <div>
                 <div className='name_date'>
@@ -38,7 +40,6 @@ export default class PostItem extends Component {
                 <button type="button" className="btn btn-danger" onClick={deletePost}>Видалити</button>
                 </div>
             </div>
-
         );
     }
 }
