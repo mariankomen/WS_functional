@@ -36,6 +36,8 @@ export default class App extends Component {
                 ...postItems.slice(0, idx),
                 ...postItems.slice(idx + 1)
             ]
+
+
             return {
                 postItems: newArr
             };
