@@ -34,7 +34,7 @@ export default class AddPostRender extends Component {
                 <div>
                     <nav className="navbar navbar-light bg-light">
                         <form className="form-inline">
-                            <input className="form-control mr-sm-2" type="text" placeholder="Enter your name: " onChange={this.onNameChange}/>
+                            <input className="form-control mr-sm-2" type="text" placeholder="Enter post title: " onChange={this.onNameChange}/>
                         </form>
                     </nav>
                 </div>

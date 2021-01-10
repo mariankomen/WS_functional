@@ -3,10 +3,10 @@ import HeaderRender from "./header-render/header-render";
 
 import './header.css'
 
-function Header(){
+function Header(props){
     return(
         <div className='header'>
-            <HeaderRender/>
+            <HeaderRender OnSearchChange={props.OnSearchChange}/>
         </div>
     );
 }
