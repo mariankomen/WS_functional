@@ -15,6 +15,7 @@ export default class AddPostPanel extends Component {
                     <PostItem {...itemObj}
                               deletePost={() => deletePost(id)}
                               editPost={()=> editPost(id)}
+                              id={id}
                     />
                 </li>
             )

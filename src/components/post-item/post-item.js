@@ -12,11 +12,11 @@ export default class PostItem extends Component {
         })
     }
     render() {
-        const {nameUser, content, date, deletePost, editPost} = this.props;
+        const {id, nameUser, content, date, deletePost, editPost} = this.props;
         const {edit_status} = this.state;
 
         if(!edit_status) {
-            return <PostItemEdit nameUser={nameUser} content={content} date={date} editPost={editPost}/>
+            return <PostItemEdit nameUser={nameUser} content={content} date={date} editPost={editPost} id={id}/>
         }
 
         return (

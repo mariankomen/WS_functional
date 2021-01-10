@@ -9,6 +9,8 @@ export default class App extends Component {
         postItems: [
             this.ItemCreator('Ivan',' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis culpa debitis dolorum eos exercitationem inventore neque nihil nobis porro quas. Aliquam amet deserunt distinctio eum modi quaerat quisquam reprehenderit tenetur.'),
             this.ItemCreator('Stepan','Hello, prodam 3 litry samogonki'),
+            this.ItemCreator('Igot','Hello, prodam 3 litry samogonki'),
+            this.ItemCreator('Misha','Hello, prodam 3 litry samogonki'),
         ]
     }
     ItemCreator(nameUser,content){
@@ -37,7 +39,6 @@ export default class App extends Component {
                 ...postItems.slice(idx + 1)
             ]
 
-
             return {
                 postItems: newArr
             };
@@ -45,14 +46,20 @@ export default class App extends Component {
     };
 //slozhno
 
-    editPost = (id) => {
+    editPost = (id,content) => {
         this.setState(({postItems}) => {
             const idx = postItems.findIndex((el) => el.id === id);
-            console.log(`Index is: ${idx}`);
-            console.log(postItems[idx]);
-            return{
-                postItems
-            }
+            const NewPost = this.ItemCreator(postItems[idx].nameUser , content);
+            NewPost.id = id;
+            const newArr = [
+                ...postItems.slice(0, idx),
+                NewPost,
+                ...postItems.slice(idx + 1)
+            ]
+            console.log(newArr);
+            return {
+                postItems: newArr
+            };
         })
     }
 
